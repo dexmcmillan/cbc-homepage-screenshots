@@ -24,8 +24,12 @@ jobs:
       - name: Run screenshot script
         run: python3 main.py
 
-      - name: Push data back to repo
-        uses: mikeal/publish-to-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH_NAME: 'main'
+      - name: Push back to repo
+        uses: actions/checkout@v3
+        run: |
+          date > generated.txt
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "generated"
+          git push
