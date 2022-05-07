@@ -1,7 +1,7 @@
 name: Take screenshot of CBC News front page
 on:
   schedule:
-    - cron: 0/10 * * * *
+    - cron: 15 8 * * *
 
 jobs:
   take_screenshot:
