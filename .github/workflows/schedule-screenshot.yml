@@ -2,6 +2,7 @@ name: Take screenshot of CBC News front page
 on:
   schedule:
     - cron: 15 8 * * *
+    - cron: 0/10 * * * *
 
 jobs:
   take_screenshot:
@@ -23,6 +24,9 @@ jobs:
 
       - name: Run screenshot script
         run: python3 main.py
+
+      - name: Run headline scrape
+        run: python3 headlines.py
 
       - name: Push back to repo
         uses: mikeal/publish-to-github-action@master
